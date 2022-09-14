@@ -1,0 +1,154 @@
+/* variables */
+:root {
+    --almost-white: #FAFAFA;
+    --main-dark: #151515;
+    --main-grey: #8E8E8E;
+    --accent: #0e42c5;
+}
+/* reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
+    /* overflow-x: hidden; */
+
+}
+a {
+    text-decoration: none;
+}
+ul li{
+    list-style-type: none;
+}
+
+
+/* reusable styles */
+.wrapper {
+    max-width: 1230px;
+    margin-inline: auto;
+    padding-inline: 10px;
+}
+.grid {
+    display: grid;
+}
+
+img {
+    max-width: 100%;
+}
+
+nav .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper.grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 10px;
+}
+/* base styles */
+body {
+    background: var(--almost-white);
+    font-family: 'mainFont', sans-serif;
+}
+
+
+nav {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    background-color: var(--almost-white);
+    transition: all 300ms ease-in-out;
+}
+
+.nav-brand {
+    font-family: headingFont;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--main-dark);
+}
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    /* width: min(100% + 10px); */
+    width: 100%;
+    height: 100vh;
+    right: 0;
+    left: 0;
+    background: white;
+    text-align: center;
+    transform: translateX(110%);
+    transition: transform 200ms ease;
+}
+
+.nav-active {
+    transform: translateX(0);
+}
+
+.hamburger-menu {
+    cursor: pointer;
+    right: 0;
+    padding: 5px;
+    z-index: 2;
+}
+
+.line-1, .line-2, .line-3 {
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--main-dark);
+    border-radius: 5px;
+    transition: all 300ms ease;
+}
+
+.change .line-1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    background-color: var(--main-dark);
+}
+
+.change .line-2 {
+    opacity: 0;
+    transform: scale(0,1);
+    transform-origin: right;
+    background-color: var(--main-dark);
+
+}
+.change .line-3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+    background-color: var(--main-dark);
+}
+
+.scroll-down nav {
+    transform: translate3d(0, -110%, 0);
+}
+.scroll-up nav {
+    filter: drop-shadow( 0 -10px 20px rgb(170, 170, 170));
+}
+
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+/* fonts */
+@font-face {
+    font-family: mainFont;
+    src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: headingFont;
+    src: url(../fonts/Montserrat-Bold.ttf);
+}
+
+
+/* mobile styles */
+/* small tablet styles */
+/* large tablet styles */
+/* desktop styles */
