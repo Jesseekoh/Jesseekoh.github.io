@@ -1,36 +1,42 @@
 const app = () => {
+	const body = document.body;
+	const navBar = document.querySelector("nav");
+	const hamburgerMenu = document.querySelector('.hamburger-menu');
+	const navLinks = document.querySelector('.nav-links');
+	const navLink = document.querySelectorAll('.nav-item');
+
 	const navSlide = () => {
-		const hamburgerMenu = document.querySelector('.hamburger-menu');
-		const nav = document.querySelector('.nav-links');
-		const navLink = document.querySelectorAll('.nav-item')
-	
+
 		hamburgerMenu.addEventListener('click', () => {
-			nav.classList.toggle("nav-active");
+			navLinks.classList.toggle("nav-active");
 			hamburgerMenu.classList.toggle('change');
+			body.classList.toggle('scroll-disabled')
 			navLink.forEach((link) => {
 				link.addEventListener('click', () => {
-					nav.classList.remove('nav-active')
-					hamburgerMenu.classList.remove('change')
+					navLinks.classList.remove('nav-active');
+					hamburgerMenu.classList.remove('change');
+					body.classList.remove('scroll-disabled');
 				})
 			})
 		})
 	}
-	
-	
+
+
 
 	const makeNavRevealOnScrollUp = () => {
-		const body = document.body;
+
 		let lastScroll = 0;
 		window.addEventListener('scroll', () => {
 			const currentScroll = window.pageYOffset;
-			if (currentScroll <= 0) {
+			if (navLinks.classList.contains('nav-active')) {
+				body.classList = ''
+				// body.style.overflowY = 'hidden'
+			} else if (currentScroll <= 0) {
 				body.classList.remove('scroll-up')
-			}
-			if (currentScroll > lastScroll && !body.classList.contains('scroll-down')) {
+			} else if (currentScroll > lastScroll && !body.classList.contains('scroll-down')) {
 				body.classList.remove('scroll-up');
 				body.classList.add('scroll-down')
-			}
-			if (currentScroll < lastScroll && body.classList.contains('scroll-down')) {
+			} else if (currentScroll < lastScroll && body.classList.contains('scroll-down')) {
 				body.classList.remove('scroll-down');
 				body.classList.add('scroll-up')
 			}
@@ -39,8 +45,21 @@ const app = () => {
 		})
 	}
 
+	const fixBuggyNav = () => {
+		const x = window.matchMedia("min-width: 768px");
+		console.log('hello');
+	}
+
 	navSlide();
-	makeNavRevealOnScrollUp()
+	makeNavRevealOnScrollUp();
+	screen.orientation.onchange =  (e) => {
+		// console.log(e);
+		if (window.matchMedia('(min-width: 768px)').matches) {
+			console.log('hello')
+
+		}
+	}
+
 }
 
 

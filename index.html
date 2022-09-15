@@ -13,7 +13,9 @@
 <body>
     <nav class="site-nav">
         <div class="wrapper">
-            <a href="#" class="nav-brand">Jekoh</a>
+            <a href="#">
+                <h1 class="nav-brand">Jekoh.</h1>
+            </a>
             <ul class="nav-links">
                 <li class="nav-item"><a href="#about-me">About</a></li>
                 <li class="nav-item"><a href="#portfolio">Portfolio</a></li>
@@ -28,39 +30,45 @@
         </div>
 
     </nav>
-    <div class="wrapper grid">
-        <section class="hero" id="home">
-            <div class="home-text">
-                <h1>Hi, I'm Jesse</h1>
-                <h3>Character Artist<br />& Web Developer</h3>
+    <!-- <div class="wrapper"> -->
+    <section class="hero" id="home">
+        <div class="wrapper">
+
+            <div class="hero-text">
+                <h1 class="heading">Hi, I'm Jesse</h1>
+                <h3>Web Developer<br />& Character Designer</h3>
             </div>
-        </section>
-        <section class="my-description" id="about-me">
-            <div class="container">
-                <h3>About Me</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non ea magni odit quod amet impedit nisi.
-                    Autem fuga debitis pariatur in ipsam natus? Dolore ab assumenda reiciendis blanditiis dolores!<p>
-            </div>
-        </section>
-        <section class="portfolio">
-            <h3>Some of my Projects</h3>
-            <div class="projects grid">
-                <a href="#">
-                    <img src="./assets/img/portfolio1.jpg" alt="">
-                    <h4>JavaScript Calculator</h4>
-                </a>
-                <a href="#">
-                    <img src="./assets/img/portfolio2.jpg" alt="">
-                    <h4>Background Gradient Generator</h4>
-                </a>
-                <a href="#">
-                    <img src="./assets/img/portfolio3.jpg" alt="">
-                    <h4>Tic Tac Toe</h4>
-                </a>
-            </div>
-        </section>
-        <section id="skills">
-            <h3>Things I Can Do</h3>
+        </div>
+    </section>
+    <section class="my-description" id="about-me">
+        <div class="wrapper">
+            <h3 class="section-heading">About Me</h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non ea magni odit quod amet impedit nisi.
+                Autem fuga debitis pariatur in ipsam natus? Dolore ab assumenda reiciendis blanditiis dolores!<p>
+        </div>
+    </section>
+    <section id="portfolio" class="portfolio">
+        <h3 class="section-heading">Some of my Projects</h3>
+        <div class="projects grid">
+            <a href="#">
+                <img src="./assets/img/portfolio1.jpg" alt="">
+                <h4>JavaScript Calculator</h4>
+            </a>
+            <a href="#">
+                <img src="./assets/img/portfolio2.jpg" alt="">
+                <h4>Background Gradient Generator</h4>
+            </a>
+            <a href="#">
+                <img src="./assets/img/portfolio3.jpg" alt="">
+                <h4>Tic Tac Toe</h4>
+            </a>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="wrapper">
+
+            <h3 class="section-heading">Things I Can Do</h3>
             <ul class="grid">
                 <li>
                     <h4>JavaScript</h4>
@@ -78,21 +86,22 @@
                     <h4>Python</h4>
                 </li>
             </ul>
-        </section>
-        <section id="contact">
-            <h3>Get in Touch</h3>
-            <p class="leading">Lorem ipsum dolor sit amet consectetur adipisicing.<p>
-                    <form>
-                        <input type="text" placeholder="Name">
-                        <input type="text" placeholder="EMAIL">
-                        <textarea placeholder="YOUR MESSAGE"></textarea>
-                        <button type="button" class="button">Send Message</button>
-                    </form>
-        </section>
+        </div>
+    </section>
+    <section id="contact">
+        <h3 class="section-heading">Get in Touch</h3>
+        <p class="leading">Lorem ipsum dolor sit amet consectetur adipisicing.<p>
+                <form>
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="EMAIL">
+                    <textarea placeholder="YOUR MESSAGE"></textarea>
+                    <button type="button" class="button">Send Message</button>
+                </form>
+    </section>
 
 
-        <footer></footer>
-    </div>
+    <footer></footer>
+    <!-- </div> -->
     <script src="./assets/scripts/main.js"></script>
 </body>
 
