@@ -5,64 +5,136 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://kit.fontawesome.com/df53e0de70.js" crossorigin="anonymous"></script> -->
     <!-- <link rel="stylesheet" href="./assets/styles/reset.css"> -->
     <link rel="stylesheet" href="./assets/styles/main.css">
-    <title>Document</title>
+    <title>Jekoh</title>
 </head>
 
 <body>
-    <nav class="site-nav">
-        <div class="wrapper">
-            <a href="#">
-                <h1 class="nav-brand">Jekoh.</h1>
-            </a>
-            <ul class="nav-links">
-                <li class="nav-item"><a href="#about-me">About</a></li>
-                <li class="nav-item"><a href="#portfolio">Portfolio</a></li>
-                <li class="nav-item"><a href="#skills">Skills</a></li>
-                <li class="nav-item"><a href="#contact">Contact</a></li>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#home" class="nav-logo">Jekoh.</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
             </ul>
-            <div class="hamburger-menu">
-                <div class="line-1"></div>
-                <div class="line-2"></div>
-                <div class="line-3"></div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </div>
-
-    </nav>
-    <!-- <div class="wrapper"> -->
+        </nav>
+    </header>
     <section class="hero" id="home">
         <div class="wrapper">
 
-            <div class="hero-text">
-                <h1 class="heading">Hi, I'm Jesse</h1>
+            <div class="hero-text spacer">
+                <h1 class="heading">Hi, I'm <span>Jesse</span></h1>
                 <h3>Web Developer<br />& Character Designer</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ab, architecto non impedit expedita
+                    eligendi aliquam! Accusamus vel ex reprehenderit quam, sunt iure perferendis officia totam suscipit
+                    qui adipisci perspiciatis!</p>
+                <a href="" class="btn contact-btn">Reach Out <i class="fas fa-paper-plane"></i></a>
+                <!-- <i class="fab fa-3x fa-github"></i> -->
             </div>
+            <ul class="socials">
+                <li>
+                    <a href="#"><i class="social-link fab  fa-github"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="social-link fab  fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="social-link fab  fa-linkedin"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="social-link fab  fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="social-link fab  fa-artstation"></i></a></li>
+                <li>
+            </ul>
         </div>
     </section>
-    <section class="my-description" id="about-me">
+    <section class="my-description" id="about">
         <div class="wrapper">
             <h3 class="section-heading">About Me</h3>
-            <hr>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non ea magni odit quod amet impedit nisi.
                 Autem fuga debitis pariatur in ipsam natus? Dolore ab assumenda reiciendis blanditiis dolores!<p>
         </div>
     </section>
     <section id="portfolio" class="portfolio">
-        <h3 class="section-heading">Some of my Projects</h3>
-        <div class="projects grid">
-            <a href="#">
-                <img src="./assets/img/portfolio1.jpg" alt="">
-                <h4>JavaScript Calculator</h4>
-            </a>
-            <a href="#">
-                <img src="./assets/img/portfolio2.jpg" alt="">
-                <h4>Background Gradient Generator</h4>
-            </a>
-            <a href="#">
-                <img src="./assets/img/portfolio3.jpg" alt="">
-                <h4>Tic Tac Toe</h4>
-            </a>
+        <div class="wrapper">
+
+            <h3 class="section-heading">Stuff I've Built</h3>
+            <div class="projects grid">
+                <div>
+                    <div class="project-img">
+
+                        <img src="./assets/img/pro1.jpg" alt="">
+                    </div>
+                    <h4>JavaScript Calculator</h4>
+                </div>
+                <div>
+                    <div class="project-img">
+                        <img src="./assets/img/pro2.jpg" alt="">
+                    </div>
+                    <h4>Background Gradient Generator</h4>
+                </div>
+                <div>
+                    <div class="project-img">
+                        <img src="./assets/img/pro3.jpg" alt="">
+                    </div>
+                    <h4>Tic Tac Toe</h4>
+                </div>
+                <div>
+                    <div class="project-img">
+                        <img src="./assets/img/pro4.jpg" alt="">
+                    </div>
+                    <h4>JavaScript Calculator</h4>
+                </div>
+                <div>
+                    <div class="project-img">
+                        <img src="./assets/img/pro5.jpg" alt="">
+                    </div>
+                    <h4>Background Gradient Generator</h4>
+                </div>
+                <div>
+                    <div class="project-img">
+                        <img src="./assets/img/pro6.jpg" alt="">
+                    </div>
+                    <h4>Tic Tac Toe</h4>
+                </div>
+                <div>
+                    <div class="project-img">
+                        <img src="./assets/img/Screenshot 2022-08-30 at 15.41.14.png" alt="">
+                    </div>
+                    <h4>JavaScript Calculator</h4>
+                </div>
+                <div>
+                    <div class="project-img">
+                        <img src="./assets/img/Screenshot 2022-08-31 at 16.28.29 copy.jpg" alt="">
+                    </div>
+                    <h4>Background Gradient Generator</h4>
+                </div>
+                <div>
+                    <div class="project-img">
+                        <img src="./assets/img/Screenshot 2022-09-04 at 04.20.02.png" alt="">
+                    </div>
+                    <h4>Tic Tac Toe</h4>
+                </div>
+            </div>
         </div>
     </section>
     <section id="skills">
@@ -89,18 +161,30 @@
         </div>
     </section>
     <section id="contact">
-        <h3 class="section-heading">Get in Touch</h3>
-        <p class="leading">Lorem ipsum dolor sit amet consectetur adipisicing.<p>
-                <form>
-                    <input type="text" placeholder="Name">
-                    <input type="text" placeholder="EMAIL">
-                    <textarea placeholder="YOUR MESSAGE"></textarea>
-                    <button type="button" class="button">Send Message</button>
-                </form>
+        <div class="wrapper">
+            <h3 class="section-heading">Get in Touch</h3>
+            <p class="leading">Lorem ipsum dolor sit amet consectetur adipisicing.<p>
+                    <form>
+                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="EMAIL">
+                        <textarea placeholder="YOUR MESSAGE"></textarea>
+                        <button type="button" class="button">Send Message</button>
+                    </form>
+
+        </div>
     </section>
 
 
-    <footer></footer>
+    <footer>
+        <div class="wrapper">
+            <h1 class="logo">Jekoh.</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+            </ul>
+        </div>
+    </footer>
     <!-- </div> -->
     <script src="./assets/scripts/main.js"></script>
 </body>
