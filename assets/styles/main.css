@@ -5,7 +5,8 @@
     --main-grey: #8E8E8E;
     --second-grey: #475569;
     --accent: #0e42c5;
-    --second-accent: #ff7f50;
+    /* --second-accent: #ff7f50; */
+    --second-accent: #ff715b;
 }
 
 /* reset styles */
@@ -17,7 +18,7 @@
 
 html {
     font-size: 100%;
-    font-family: Montserrat, sans-serif;
+    font-family: Main-font, sans-serif;
     scroll-behavior: smooth;
 
 }
@@ -76,7 +77,8 @@ section:not(#home) {
     height: 4px;
     border-radius: 5px;
     width: 100%;
-    background-color: coral;
+    background-color: var(--second-accent);
+    background-color: var(--second-grey);
 }
 
 /* base styles */
@@ -266,15 +268,69 @@ section:not(#home) {
 }
 
 
+.contact-form {
+    margin-top: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 10px;
+    /* width: 400px; */
+    max-width: 400px;
+    margin-inline: auto;
+}
+
+.contact-input {
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 600px;
+    border: 2px solid var(--main-dark);
+    outline: none;
+}
+
+.contact-form input[placeholder="Name"] {
+    grid-column: span 2;
+}
+.contact-form input[placeholder="Email"] {
+    grid-column: span 2;
+}
+
+.contact-form textarea.contact-input {
+    grid-column: span 2;
+    grid-row: span 4;
+}
+
+.message-btn {
+    display: block;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--second-accent);
+    grid-column: 2;
+}
+
+
+
 /* footer styles */
 footer {
     width: 100%;
     padding: 50px 10px;
+    padding: 2rem clamp(1rem, 7vw, 200px);
+    background-color: var(--second-accent);
+    background-color: var(--second-grey);
 }
 
 footer .wrapper {
     display: flex;
     justify-content: space-between;
+
+}
+
+
+/* font styles */
+@font-face {
+    font-family: Main-Font;
+    src: url(../fonts/Montserrat-VariableFont_wght.ttf);
+    font-weight: 100 950;
+    font-stretch: 75% 125%
 }
 
 /* media queries */
@@ -327,7 +383,7 @@ footer .wrapper {
 
     .nav-menu {
         position: fixed;
-        left: -110%;
+        right: -110%;
         top: 59px;
         flex-direction: column;
         background-color: #fff;
@@ -342,7 +398,7 @@ footer .wrapper {
     }
 
     .nav-menu.active {
-        left: 0;
+        right: 0;
     }
 
     .nav-item {
