@@ -1,0 +1,21 @@
+#root {
+    width: 100%;
+    overflow-y: scroll;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+
+.scroller {
+    height: 100dvh;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+
+    & > section {
+        scroll-snap-stop: always;
+        scroll-snap-align: center;
+    }
+}
