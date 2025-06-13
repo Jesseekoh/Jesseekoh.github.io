@@ -1,6 +1,6 @@
 #root {
     width: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,8 +14,13 @@
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 
-    & > section {
+    &>section {
         scroll-snap-stop: always;
         scroll-snap-align: center;
     }
+}
+
+#hero {
+    /* background-image: linear-gradient(to bottom, transparent 60%, #0f172a), url('./assets/images/pattern-dark-bg.svg') */
+    background-image: linear-gradient(to bottom, transparent 60%, #113537), url('./assets/images/pattern-dark-bg.svg')
 }

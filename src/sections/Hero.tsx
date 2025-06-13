@@ -26,11 +26,13 @@ const Hero = () => {
               />
             </span>
             <br />
-            <span className="ml-8 text-7xl font-black tracking-tighter bg-cyan-600/90">
+            <span className="ml-8 lg:text-7xl font-black tracking-tighter bg-[#3CDBD3] text-[#113537]">
               {`Jesse Ekoh-Ordan ${emoji}`}
             </span>
           </h1>
-          <p className="text-7xl text-center">Software Engineer</p>
+          <p className="text-2xl lg:text-7xl md:text-center italic">
+            Software Engineer
+          </p>
           {/* <p className="pb-2 text-lg leading-[1.3] tracking-wide">
           <span className="text-2xl">👨🏾‍💻</span>
           FullStack Software Engineer Lorem, ipsum dolor sit amet consectetur
@@ -48,7 +50,7 @@ const Hero = () => {
               </a>
             </li>
             <li>
-              <a href="https://github.com/jesseekoh" target="_blank">
+              <a href="https://www.linkedin.com/in/jesseekoh/" target="_blank">
                 <Linkedin className="size-8" />
               </a>
             </li>
