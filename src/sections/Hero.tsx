@@ -30,7 +30,7 @@ const Hero = () => {
               {`Jesse Ekoh-Ordan ${emoji}`}
             </span>
           </h1>
-          <p className="text-2xl lg:text-7xl md:text-center italic">
+          <p className="text-2xl font-[Montserrat] lg:text-7xl md:text-center italic">
             Software Engineer
           </p>
           {/* <p className="pb-2 text-lg leading-[1.3] tracking-wide">

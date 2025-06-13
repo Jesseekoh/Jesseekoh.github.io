@@ -1,7 +1,7 @@
 import AttendanceAppImage from '../assets/images/Screenshot 2025-06-13 090628.png';
 const Projects = () => {
   return (
-    <section id="projects">
+    <section id="projects" class="">
       <div className="container min-h-screen mx-auto px-6">
         <div className="project-content">
           <h2 className="text-2xl text-center font-mono">Projects</h2>
@@ -12,7 +12,7 @@ const Projects = () => {
                 <img
                   src={AttendanceAppImage}
                   alt="Shoes"
-                  className="object-cover group-hover:scale-[1.2] transition-all"
+                  className="object-cover group-hover:scale-[1.1] transition-all"
                 />
               </figure>
               <div className="card-body">
