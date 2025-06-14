@@ -9,11 +9,13 @@ function App() {
   return (
     <>
       <Navbar />
+      {/* <div class="snap-mandatory"> */}
       <Hero />
       <About />
       <Projects />
       <Contact />
       <Footer />
+      {/* </div> */}
     </>
   );
 }

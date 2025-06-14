@@ -9,16 +9,16 @@ const NavMobile: React.FC<NavMobileProps> = ({ links }) => {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      <div className="lg:hidden relative z-10">
+      <div className="lg:hidden relative z-20">
         <Hamburger size={20} toggled={isOpen} toggle={setOpen} />
       </div>
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute overflow-y-hidden top-0 right-0 w-full"
-            initial={{ opacity: 0, translateX: '100%' }}
-            animate={{ opacity: 1, translateX: '0' }}
-            exit={{ opacity: 0, translateX: '100%' }}
+            className="absolute overflow-y-hidden top-0 z-10 right-0 w-full"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: '0' }}
+            exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.25 }}
           >
             <ul className="nav-links flex flex-col  bg-[#1b1b1b] h-screen text-center gap-5 justify-center lg:hidden">

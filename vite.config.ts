@@ -7,6 +7,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   base: '/',
   plugins: [preact(), tailwindcss()],
+  server: {
+    port: 3000
+  },
   resolve: {
     alias: {
       react: 'preact/compat',
