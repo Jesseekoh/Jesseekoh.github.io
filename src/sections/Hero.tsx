@@ -11,24 +11,6 @@ const Hero = () => {
     }, 200);
   }, []);
 
-  const handleSubmitAttendance = async (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault();
-    navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        alert(
-          'latitude: ' +
-            pos.coords.latitude +
-            ', longitude: ' +
-            pos.coords.longitude
-        );
-      },
-      (err) => console.log(err),
-      { maximumAge: 0, timeout: 5000, enableHighAccuracy: true }
-    );
-  };
-
   return (
     <section id="hero">
       <div className="container mx-auto h-svh max-h-[800px] grid place-content-center">
@@ -71,11 +53,6 @@ const Hero = () => {
               <a href="https://www.linkedin.com/in/jesseekoh/" target="_blank">
                 <Linkedin className="size-8" />
               </a>
-            </li>
-            <li>
-              <button onClick={handleSubmitAttendance} class="bg-red-400 p-2">
-                Click me
-              </button>
             </li>
           </ul>
         </div>

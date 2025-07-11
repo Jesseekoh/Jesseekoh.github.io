@@ -10,7 +10,7 @@ const Navbar = () => {
             {'<Jekoh/>'}
           </a>
           <NavMobile links={navLinks} />
-          <ul className=" gap-16 hidden lg:flex uppercase">
+          <ul className=" gap-16 hidden lg:flex">
             <li>
               <a href="#about">About Me</a>
             </li>
