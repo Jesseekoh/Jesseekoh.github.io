@@ -64,14 +64,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full flex justify-between items-center py-4 px-6 z-50 transition-all duration-300 ${
+      className={`sticky top-0 left-0 w-full flex justify-between items-center py-4 px-6 z-50 transition-all duration-300 ${
         visible ? 'translate-y-0' : '-translate-y-full'
       } ${scrolled ? 'bg-white shadow-md' : 'bg-white'}`}
     >
       <div className="flex items-center">
         <a
           href="#"
-          className="text-xl font-bold text-gray-800"
+          className="text-xl font-light text-gray-800"
           onClick={(e) => {
             e.preventDefault();
             scrollToSection('home');
