@@ -17,32 +17,39 @@ export default function Profile() {
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
               Skills
             </h3>
-            <ul className="space-y-3">
-              <li className="flex items-center">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
-                <span className="text-gray-700">JavaScript (ES6+)</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
-                <span className="text-gray-700">TypeScript</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
-                <span className="text-gray-700">React & Next.js</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
-                <span className="text-gray-700">HTML & CSS / Tailwind CSS</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
-                <span className="text-gray-700">UI/UX Design</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
-                <span className="text-gray-700">Responsive Design</span>
-              </li>
-            </ul>
+            <div className="space-y-6">
+              <div>
+                <h4 className="font-medium text-gray-800 mb-2">Frontend</h4>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">React</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Next.js</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">TypeScript</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">JavaScript</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">HTML/CSS</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Tailwind CSS</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">UI/UX Design</span>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="font-medium text-gray-800 mb-2">Backend</h4>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Node.js</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Python</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Flask</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Ruby on Rails</span>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="font-medium text-gray-800 mb-2">Databases</h4>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">MongoDB</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">MySQL</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">PostgreSQL</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="bg-gray-50 p-6 rounded-xl">
@@ -88,8 +95,8 @@ export default function Profile() {
                 E-commerce Platform
               </h4>
               <p className="text-gray-600 mb-4 flex-grow">
-                A fully responsive online store with shopping cart
-                functionality.
+                A fullstack e-commerce solution with user authentication, 
+                product management, and payment processing.
               </p>
 
               {/* Tech Stack Pills */}
@@ -106,6 +113,9 @@ export default function Profile() {
                 <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
                   Stripe
                 </span>
+                <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
+                  JWT
+                </span>
               </div>
 
               {/* Project Links */}
@@ -114,37 +124,73 @@ export default function Profile() {
                   href="https://example.com/ecommerce-demo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 transition-colors"
+                  className="text-sm bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 transition-colors inline-flex items-center"
                 >
                   Live Demo
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
+                  >
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
                 </a>
                 <a
                   href="https://github.com/your-username/ecommerce-platform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm border border-gray-300 text-gray-700 px-3 py-1 rounded hover:bg-gray-100 transition-colors"
+                  className="text-sm border border-gray-300 text-gray-700 px-3 py-1 rounded hover:bg-gray-100 transition-colors inline-flex items-center"
                 >
                   Code
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
+                  >
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
                 </a>
               </div>
             </div>
 
             <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 flex flex-col">
               <h4 className="text-lg font-medium text-gray-800 mb-2">
-                Attendance tracking app
+                Task Management App
               </h4>
               <p className="text-gray-600 mb-4 flex-grow">
-                A fully responsive React app for lecturers and students to track
-                class attendance.
+                Fullstack task management application with real-time updates, 
+                team collaboration, and project tracking features.
               </p>
 
               {/* Tech Stack Pills */}
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
-                  React
+                  Next.js
                 </span>
                 <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
-                  Firebase
+                  Ruby on Rails
+                </span>
+                <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
+                  PostgreSQL
+                </span>
+                <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
+                  WebSockets
                 </span>
                 <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
                   Tailwind CSS
@@ -154,30 +200,61 @@ export default function Profile() {
               {/* Project Links */}
               <div className="flex space-x-3 mt-auto">
                 <a
-                  href="https://attendance-app-frontend-09ja.onrender.com/"
+                  href="https://example.com/task-management-demo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 transition-colors"
+                  className="text-sm bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 transition-colors inline-flex items-center"
                 >
                   Live Demo
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
+                  >
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
                 </a>
                 <a
-                  href="https://github.com/jesseekoh/attendance-app"
+                  href="https://github.com/your-username/task-management-app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm border border-gray-300 text-gray-700 px-3 py-1 rounded hover:bg-gray-100 transition-colors"
+                  className="text-sm border border-gray-300 text-gray-700 px-3 py-1 rounded hover:bg-gray-100 transition-colors inline-flex items-center"
                 >
                   Code
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
+                  >
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
                 </a>
               </div>
             </div>
 
             <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 flex flex-col">
               <h4 className="text-lg font-medium text-gray-800 mb-2">
-                Portfolio Website
+                Social Media Analytics Dashboard
               </h4>
               <p className="text-gray-600 mb-4 flex-grow">
-                Showcase of design and development projects.
+                Fullstack analytics platform that aggregates social media data 
+                and provides insights through interactive visualizations.
               </p>
 
               {/* Tech Stack Pills */}
@@ -186,30 +263,66 @@ export default function Profile() {
                   React
                 </span>
                 <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
-                  TypeScript
+                  Python
                 </span>
                 <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
-                  Tailwind CSS
+                  Flask
+                </span>
+                <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
+                  MySQL
+                </span>
+                <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
+                  D3.js
                 </span>
               </div>
 
               {/* Project Links */}
               <div className="flex space-x-3 mt-auto">
                 <a
-                  href="https://jesseekoh.github.io"
+                  href="https://example.com/social-analytics-demo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 transition-colors"
+                  className="text-sm bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 transition-colors inline-flex items-center"
                 >
                   Live Demo
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
+                  >
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
                 </a>
                 <a
-                  href="https://github.com/jesseekoh/portfolio"
+                  href="https://github.com/your-username/social-analytics-dashboard"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm border border-gray-300 text-gray-700 px-3 py-1 rounded hover:bg-gray-100 transition-colors"
+                  className="text-sm border border-gray-300 text-gray-700 px-3 py-1 rounded hover:bg-gray-100 transition-colors inline-flex items-center"
                 >
                   Code
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
+                  >
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
                 </a>
               </div>
             </div>
