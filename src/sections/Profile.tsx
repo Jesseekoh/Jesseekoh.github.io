@@ -21,32 +21,60 @@ export default function Profile() {
               <div>
                 <h4 className="font-medium text-gray-800 mb-2">Frontend</h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">React</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Next.js</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">TypeScript</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">JavaScript</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">HTML/CSS</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Tailwind CSS</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">UI/UX Design</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    React
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    Next.js
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    TypeScript
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    JavaScript
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    HTML/CSS
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    Tailwind CSS
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    UI/UX Design
+                  </span>
                 </div>
               </div>
-              
+
               <div>
                 <h4 className="font-medium text-gray-800 mb-2">Backend</h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Node.js</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Python</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Flask</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">Ruby on Rails</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    Node.js
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    Python
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    Flask
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    Ruby on Rails
+                  </span>
                 </div>
               </div>
-              
+
               <div>
                 <h4 className="font-medium text-gray-800 mb-2">Databases</h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">MongoDB</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">MySQL</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">PostgreSQL</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    MongoDB
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    MySQL
+                  </span>
+                  <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded">
+                    PostgreSQL
+                  </span>
                 </div>
               </div>
             </div>
@@ -95,7 +123,7 @@ export default function Profile() {
                 E-commerce Platform
               </h4>
               <p className="text-gray-600 mb-4 flex-grow">
-                A fullstack e-commerce solution with user authentication, 
+                A fullstack e-commerce solution with user authentication,
                 product management, and payment processing.
               </p>
 
@@ -134,9 +162,9 @@ export default function Profile() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
                   >
                     <path d="M7 7h10v10" />
@@ -157,9 +185,9 @@ export default function Profile() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
                   >
                     <path d="M7 7h10v10" />
@@ -174,7 +202,7 @@ export default function Profile() {
                 Task Management App
               </h4>
               <p className="text-gray-600 mb-4 flex-grow">
-                Fullstack task management application with real-time updates, 
+                Fullstack task management application with real-time updates,
                 team collaboration, and project tracking features.
               </p>
 
@@ -213,9 +241,9 @@ export default function Profile() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
                   >
                     <path d="M7 7h10v10" />
@@ -236,9 +264,9 @@ export default function Profile() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
                   >
                     <path d="M7 7h10v10" />
@@ -253,7 +281,7 @@ export default function Profile() {
                 Social Media Analytics Dashboard
               </h4>
               <p className="text-gray-600 mb-4 flex-grow">
-                Fullstack analytics platform that aggregates social media data 
+                Fullstack analytics platform that aggregates social media data
                 and provides insights through interactive visualizations.
               </p>
 
@@ -292,9 +320,9 @@ export default function Profile() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
                   >
                     <path d="M7 7h10v10" />
@@ -315,9 +343,9 @@ export default function Profile() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
                   >
                     <path d="M7 7h10v10" />

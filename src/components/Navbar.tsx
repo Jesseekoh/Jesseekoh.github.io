@@ -1,7 +1,7 @@
 import { Spiral as Hamburger } from 'hamburger-react';
 import { useState, useEffect } from 'react';
 
-const Navbar = () => {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -17,6 +17,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Don't hide navbar when mobile menu is open
+      if (isMenuOpen) return;
+
       const currentScrollY = window.scrollY;
 
       // Update scrolled state for shadow effect
@@ -40,7 +43,7 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, isMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -124,7 +127,7 @@ const Navbar = () => {
           Contact
         </a>
         <a
-          href="/resume.pdf"
+          href="/Jesse_Ekoh-Ordan_Resume.pdf"
           download
           className="flex items-center bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
         >
@@ -136,7 +139,7 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
+            strokeWidth="2"
             stroke-linecap="round"
             stroke-linejoin="round"
             className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"
@@ -147,17 +150,41 @@ const Navbar = () => {
         </a>
       </div>
 
-      {/* Mobile Menu Button */}
-      <div
-        className="md:hidden flex flex-col space-y-1 cursor-pointer z-50"
-        onClick={toggleMenu}
-      >
-        <Hamburger size={24} toggled={isMenuOpen} />
+      {/* Mobile Menu Button and Resume Download */}
+      <div className="md:hidden flex items-center space-x-4">
+        <a
+          href="/Jesse_Ekoh-Ordan_Resume.pdf"
+          download
+          className="flex items-center text-sm bg-indigo-600 text-white px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+        >
+          Resume
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
+          >
+            <path d="M7 7h10v10" />
+            <path d="M7 17 17 7" />
+          </svg>
+        </a>
+        <div
+          className="flex flex-col space-y-1 cursor-pointer z-50"
+          onClick={toggleMenu}
+        >
+          <Hamburger size={24} toggled={isMenuOpen} />
+        </div>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-white z-40 transition-all duration-300 ease-in-out pt-16 ${
+        className={`fixed top-0 left-0 w-full h-dvh bg-white z-40 transition-all duration-300 ease-in-out pt-16 ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
@@ -210,6 +237,4 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
