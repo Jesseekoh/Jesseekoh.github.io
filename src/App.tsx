@@ -1,35 +1,30 @@
-import './App.css';
 import Navbar from './components/Navbar';
-import Contact from './sections/Contact';
+import Footer from './components/Footer';
+import LoadingScreen from './components/LoadingScreen';
 import Hero from './sections/Hero';
 import About from './sections/About';
-import Profile from './sections/Profile';
-import Footer from './components/footer';
-import LoadingScreen from './components/LoadingScreen';
-import { useState, useEffect } from 'react';
+import Projects from './sections/Projects';
+import Skills from './sections/Skills';
+import Testimonials from './sections/Testimonials';
+import Contact from './sections/Contact';
+import './App.css';
+
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []); // Simulate a loading time of 2 seconds
-
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
   return (
     <>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Profile />
-        <Contact />
-      </main>
-      <Footer />
+      <LoadingScreen />
+      <div className="min-h-dvh overflow-x-hidden bg-[var(--color-bg)]">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Skills />
+          <Testimonials />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

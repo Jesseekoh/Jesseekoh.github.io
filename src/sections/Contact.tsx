@@ -1,126 +1,214 @@
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import XIcon from '@mui/icons-material/X';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Github, Linkedin, Send, ArrowUpRight } from 'lucide-react';
+import SectionHeader from '../components/SectionHeader';
+import MagneticButton from '../components/MagneticButton';
+
+const socialLinks = [
+  {
+    icon: Github,
+    href: 'https://github.com/jesseekoh',
+    label: 'GitHub',
+  },
+  {
+    icon: Linkedin,
+    href: 'https://linkedin.com/in/jesseekoh',
+    label: 'LinkedIn',
+  },
+];
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    setIsSubmitting(false);
+    setSubmitted(true);
+    setFormData({ name: '', email: '', message: '' });
+
+    // Reset submitted state after 3 seconds
+    setTimeout(() => setSubmitted(false), 3000);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   return (
-    <section
-      id="contact"
-      className="section flex flex-col items-center justify-center p-4 bg-gray-50"
-    >
-      <div className="max-w-2xl w-full text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800">
-          Get in Touch
-        </h2>
-        <p className="text-lg text-gray-600 mb-12">
-          Feel free to reach out to me through any of these channels
-        </p>
+    <section id="contact" className="section">
+      <div className="section-container">
+        <SectionHeader
+          title="Let's Connect"
+          subtitle="Have a project in mind or just want to chat? I'd love to hear from you."
+        />
 
-        <div className="space-y-8">
-          {/* Social Links */}
-          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-xl font-semibold mb-4 text-gray-800">
-              Connect with me
-            </h3>
-            <div className="flex flex-wrap justify-center gap-6">
-              <a
-                href="mailto:jesseekoh@outlook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center group"
-              >
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-300 transition-colors">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-mail-icon lucide-mail"
-                  >
-                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                  </svg>
-                </div>
-                <span className="text-gray-700 group-hover:text-indigo-600 transition-colors">
-                  Email
-                </span>
-              </a>
-              <a
-                href="https://github.com/jesseekoh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center group"
-              >
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-2 group-hover:bg-gray-300 transition-colors">
-                  <GitHubIcon fontSize="large" />
-                </div>
-                <span className="text-gray-700 group-hover:text-indigo-600 transition-colors">
-                  GitHub
-                </span>
-              </a>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="space-y-8">
+              {/* Email CTA */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">
+                  Prefer email? Reach out directly.
+                </h3>
+                <MagneticButton
+                  as="a"
+                  href="mailto:jesseekoh@outlook.com"
+                  className="inline-flex items-center gap-3 text-2xl md:text-3xl font-semibold text-[var(--color-accent-violet)] hover:text-[var(--color-accent-violet-light)] transition-colors"
+                  strength={0.2}
+                >
+                  <Mail size={28} />
+                  jesseekoh@outlook.com
+                  <ArrowUpRight size={20} className="opacity-50" />
+                </MagneticButton>
+              </div>
 
-              <a
-                href="https://linkedin.com/in/jesseekoh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center group"
-              >
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 group-hover:bg-blue-200 transition-colors">
-                  <LinkedInIcon fontSize="large" />
+              {/* Social Links */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">
+                  Or find me on social.
+                </h3>
+                <div className="flex gap-4">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-3 rounded-lg border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-accent-violet)] hover:text-[var(--color-accent-violet)] transition-all"
+                      aria-label={link.label}
+                    >
+                      <link.icon size={20} />
+                      <span className="font-medium">{link.label}</span>
+                    </a>
+                  ))}
                 </div>
-                <span className="text-gray-700 group-hover:text-indigo-600 transition-colors">
-                  LinkedIn
-                </span>
-              </a>
+              </div>
 
-              <a
-                href="https://twitter.com/your-username"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center group"
-              >
-                <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mb-2 group-hover:bg-sky-200 transition-colors">
-                  <XIcon fontSize="large" />
+              {/* Availability */}
+              <div className="card">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                  <span className="font-semibold text-[var(--color-text-primary)]">
+                    Currently available for new projects
+                  </span>
                 </div>
-                <span className="text-gray-700 group-hover:text-indigo-600 transition-colors">
-                  X
-                </span>
-              </a>
-
-              <a
-                href="https://instagram.com/your-username"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center group"
-              >
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center mb-2 group-hover:from-purple-500 group-hover:to-pink-600 transition-all">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-white"
-                  >
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
-                </div>
-                <span className="text-gray-700 group-hover:text-indigo-600 transition-colors">
-                  Instagram
-                </span>
-              </a>
+                <p className="text-sm text-[var(--color-text-secondary)]">
+                  Open to freelance opportunities, contract work, and full-time
+                  positions. Let's discuss how I can help with your next
+                  project.
+                </p>
+              </div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-violet)] transition-colors"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-violet)] transition-colors"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-violet)] transition-colors resize-none"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+
+              <MagneticButton
+                as="button"
+                className="btn btn-primary w-full"
+                strength={0.15}
+              >
+                {isSubmitting ? (
+                  'Sending...'
+                ) : submitted ? (
+                  'Message Sent!'
+                ) : (
+                  <>
+                    Send Message
+                    <Send size={18} />
+                  </>
+                )}
+              </MagneticButton>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>

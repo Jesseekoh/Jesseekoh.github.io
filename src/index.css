@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+/* ============================================
+   DESIGN TOKENS & CUSTOM PROPERTIES
+   ============================================ */
 :root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
@@ -13,44 +15,301 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Colors - Dark Theme */
+    --color-bg: #0f0f0f;
+    --color-surface: #1a1a1a;
+    --color-surface-light: #262626;
+    --color-surface-hover: #2a2a2a;
+    --color-border: #333333;
+    --color-border-light: #444444;
+
+    /* Text Colors */
+    --color-text-primary: #e8e8e8;
+    --color-text-secondary: #a0a0a0;
+    --color-text-muted: #666666;
+
+    /* Accent Colors */
+    --color-accent-violet: #a78bfa;
+    --color-accent-violet-light: #c4b5fd;
+    --color-accent-violet-dark: #7c3aed;
+    --color-accent-amber: #f59e0b;
+    --color-accent-amber-light: #fbbf24;
+
+    /* Spacing */
+    --section-padding-x: clamp(1.5rem, 5vw, 6rem);
+    --section-padding-y: clamp(4rem, 10vh, 8rem);
+
+    /* Typography */
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --line-height-base: 1.7;
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-wide: 0.05em;
+
+    /* Animation */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 500ms ease;
+    --transition-smooth: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg);
+    overflow-x: hidden;
 }
 
-button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
+::selection {
+    background-color: var(--color-accent-violet);
+    color: var(--color-bg);
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--color-text-primary);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-accent-violet) 0%, var(--color-accent-amber) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   SECTION UTILITIES
+   ============================================ */
+.section {
+    padding: var(--section-padding-y) var(--section-padding-x);
+    position: relative;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-size: 0.9375rem;
     font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
+    letter-spacing: 0.01em;
+    border-radius: 8px;
+    border: none;
     cursor: pointer;
-    transition: border-color 0.25s;
+    transition: all var(--transition-base);
+    text-decoration: none;
 }
 
+.btn-primary {
+    background-color: var(--color-accent-violet);
+    color: var(--color-bg);
+}
 
-@media (prefers-color-scheme: light) {
+.btn-primary:hover {
+    background-color: var(--color-accent-violet-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px rgba(167, 139, 250, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-surface);
+    border-color: var(--color-border-light);
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+.card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all var(--transition-base);
+}
+
+.card:hover {
+    border-color: var(--color-border-light);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+.card-glow:hover {
+    box-shadow:
+        0 20px 40px -15px rgba(0, 0, 0, 0.5),
+        0 0 30px -10px var(--color-accent-violet);
+}
+
+/* ============================================
+   SKILL PILL STYLES
+   ============================================ */
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    transition: all var(--transition-fast);
+}
+
+.skill-pill:hover {
+    border-color: var(--color-accent-violet);
+    color: var(--color-accent-violet);
+}
+
+/* ============================================
+   LINK STYLES
+   ============================================ */
+a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-accent-violet);
+}
+
+.link-underline {
+    position: relative;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-accent-violet);
+    transition: width var(--transition-base);
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
+.glass {
+    background: rgba(15, 15, 15, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px -5px var(--color-accent-violet);
+    }
+
+    50% {
+        box-shadow: 0 0 30px -5px var(--color-accent-violet);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.6s ease forwards;
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+@media (max-width: 768px) {
     :root {
-        color: #213547;
-        background-color: #ffffff;
-    }
-
-    a:hover {
-        color: #747bff;
-    }
-
-    button {
-        background-color: #f9f9f9;
+        --section-padding-x: 1.25rem;
+        --section-padding-y: 3rem;
     }
 }
 
-@custom-variant hover (&:hover);
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-light);
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg);
+}

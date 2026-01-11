@@ -1,240 +1,135 @@
-import { Spiral as Hamburger } from 'hamburger-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, FileDown } from "lucide-react";
+
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Don't hide navbar when mobile menu is open
-      if (isMenuOpen) return;
-
-      const currentScrollY = window.scrollY;
-
-      // Update scrolled state for shadow effect
-      if (currentScrollY > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-
-      // Update visibility based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past 100px, hide navbar
-        setVisible(false);
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up, show navbar
-        setVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
+      setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, isMenuOpen]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      // Calculate scroll offset based on navbar state
-      const navbarHeight = 70; // Approximate height of navbar
-      const scrollOffset = visible ? navbarHeight : 20; // Use smaller offset if navbar is hidden
-
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - scrollOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-
-      closeMenu(); // Close the menu after clicking a link
-    }
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <nav
-      className={`sticky top-0 left-0 w-full flex justify-between items-center py-4 px-6 z-50 transition-all duration-300 ${
-        visible ? 'translate-y-0' : '-translate-y-full'
-      } ${scrolled ? 'bg-white shadow-md' : 'bg-white'}`}
-    >
-      <div className="flex items-center">
-        <a
-          href="#"
-          className="text-xl font-light text-gray-800"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('home');
-          }}
-        >
-          {'<Jekoh/>'}
-        </a>
-      </div>
-
-      {/* Desktop Menu */}
-      <div className="hidden md:flex items-center space-x-8">
-        <a
-          href="#"
-          className="text-gray-600 hover:text-indigo-600 font-medium transition-colors"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('home');
-          }}
-        >
-          Home
-        </a>
-        <a
-          href="#"
-          className="text-gray-600 hover:text-indigo-600 font-medium transition-colors"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('about');
-          }}
-        >
-          About
-        </a>
-        <a
-          href="#"
-          className="text-gray-600 hover:text-indigo-600 font-medium transition-colors"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('profile');
-          }}
-        >
-          Profile
-        </a>
-        <a
-          href="#"
-          className="text-gray-600 hover:text-indigo-600 font-medium transition-colors"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('contact');
-          }}
-        >
-          Contact
-        </a>
-        <a
-          href="/Jesse_Ekoh-Ordan_Resume.pdf"
-          download
-          className="flex items-center bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-        >
-          Resume
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"
-          >
-            <path d="M7 7h10v10" />
-            <path d="M7 17 17 7" />
-          </svg>
-        </a>
-      </div>
-
-      {/* Mobile Menu Button and Resume Download */}
-      <div className="md:hidden flex items-center space-x-4">
-        <a
-          href="/Jesse_Ekoh-Ordan_Resume.pdf"
-          download
-          className="flex items-center text-sm bg-indigo-600 text-white px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-        >
-          Resume
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right ml-1"
-          >
-            <path d="M7 7h10v10" />
-            <path d="M7 17 17 7" />
-          </svg>
-        </a>
-        <div
-          className="flex flex-col space-y-1 cursor-pointer z-50"
-          onClick={toggleMenu}
-        >
-          <Hamburger size={24} toggled={isMenuOpen} />
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`fixed top-0 left-0 w-full h-dvh bg-white z-40 transition-all duration-300 ease-in-out pt-16 ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "glass" : "bg-transparent"
         }`}
       >
-        <div className="flex flex-col items-center space-y-8 p-8">
+        <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
+          {/* Logo */}
           <a
             href="#"
-            className="text-2xl text-gray-800 font-medium py-2"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('home');
-              closeMenu();
-            }}
+            className="text-lg font-semibold tracking-tight"
+            style={{ letterSpacing: "-0.02em" }}
           >
-            Home
+            JESSEEKOH
+            <span className="text-[var(--color-accent-violet)]">.</span>
           </a>
-          <a
-            href="#"
-            className="text-2xl text-gray-800 font-medium py-2"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('about');
-              closeMenu();
-            }}
-          >
-            About
-          </a>
-          <a
-            href="#"
-            className="text-2xl text-gray-800 font-medium py-2"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('profile');
-              closeMenu();
-            }}
-          >
-            Profile
-          </a>
-          <a
-            href="#"
-            className="text-2xl text-gray-800 font-medium py-2"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('contact');
-              closeMenu();
-            }}
-          >
-            Contact
-          </a>
+
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <button
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-200 link-underline bg-transparent border-none cursor-pointer"
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+            {/* Desktop Resume Button */}
+            <li>
+              <a
+                href="/Jesse_Ekoh_Ordan_Resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[var(--color-accent-violet)] text-[var(--color-bg)] rounded-lg hover:bg-[var(--color-accent-violet-light)] transition-colors duration-200"
+              >
+                <FileDown size={16} />
+                Resume
+              </a>
+            </li>
+          </ul>
+
+          {/* Mobile: Resume Icon + Menu Button */}
+          <div className="flex items-center gap-2 md:hidden">
+            <a
+              href="/Jesse_Ekoh_Ordan_Resume.pdf"
+              target="_blank"
+              download
+              rel="noopener noreferrer"
+              className="p-2 text-[var(--color-accent-violet)] hover:text-[var(--color-accent-violet-light)] transition-colors"
+              aria-label="Download Resume"
+            >
+              <FileDown size={22} />
+            </a>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-[var(--color-text-primary)] bg-transparent border-none cursor-pointer"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 pt-20 bg-[var(--color-bg)] md:hidden"
+          >
+            <ul className="flex flex-col items-center gap-6 py-8">
+              {navLinks.map((link, index) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <button
+                    onClick={() => handleNavClick(link.href)}
+                    className="text-xl font-medium text-[var(--color-text-primary)] bg-transparent border-none cursor-pointer"
+                  >
+                    {link.label}
+                  </button>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
