@@ -73,7 +73,7 @@ export default function Navbar() {
             {/* Desktop Resume Button */}
             <li>
               <a
-                href={"/resume.pdf"}
+                href={"/Jesse_Ekoh-Ordan_resume.pdf"}
                 download="Jesse_Ekoh-Ordan_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -88,7 +88,7 @@ export default function Navbar() {
           {/* Mobile: Resume Icon + Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
             <a
-              href={"/resume.pdf"}
+              href={"/Jesse_Ekoh-Ordan_resume.pdf"}
               download="Jesse_Ekoh-Ordan_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
