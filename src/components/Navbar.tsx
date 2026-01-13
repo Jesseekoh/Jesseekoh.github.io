@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, FileDown } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, FileDown } from 'lucide-react';
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -19,14 +19,22 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
     const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+    if (element) {
+      const navbarHeight = 80; // Account for fixed navbar height
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navbarHeight,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
@@ -36,7 +44,7 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "glass" : "bg-transparent"
+          isScrolled ? 'glass' : 'bg-transparent'
         }`}
       >
         <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
@@ -44,7 +52,7 @@ export default function Navbar() {
           <a
             href="#"
             className="text-lg font-semibold tracking-tight"
-            style={{ letterSpacing: "-0.02em" }}
+            style={{ letterSpacing: '-0.02em' }}
           >
             JESSEEKOH
             <span className="text-[var(--color-accent-violet)]">.</span>
