@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, FileDown } from 'lucide-react';
+import Resume from '../../public/Jesse_Ekoh-Ordan_Resume.pdf';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -73,7 +74,7 @@ export default function Navbar() {
             {/* Desktop Resume Button */}
             <li>
               <a
-                href="/Jesse_Ekoh_Ordan_Resume.pdf"
+                href={Resume}
                 download
                 target="_blank"
                 rel="noopener noreferrer"
@@ -88,7 +89,7 @@ export default function Navbar() {
           {/* Mobile: Resume Icon + Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
             <a
-              href="/Jesse_Ekoh_Ordan_Resume.pdf"
+              href={Resume}
               target="_blank"
               download
               rel="noopener noreferrer"
