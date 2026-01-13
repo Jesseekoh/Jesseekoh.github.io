@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, FileDown } from 'lucide-react';
-import Resume from '../../public/Jesse_Ekoh-Ordan_Resume.pdf';
-
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, FileDown } from "lucide-react";
+import resumeUrl from "../assets/resume.pdf";
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Contact', href: '#contact' },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -20,8 +19,8 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (href: string) => {
@@ -33,7 +32,7 @@ export default function Navbar() {
         element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - navbarHeight,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -45,7 +44,7 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'glass' : 'bg-transparent'
+          isScrolled ? "glass" : "bg-transparent"
         }`}
       >
         <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
@@ -53,7 +52,7 @@ export default function Navbar() {
           <a
             href="#"
             className="text-lg font-semibold tracking-tight"
-            style={{ letterSpacing: '-0.02em' }}
+            style={{ letterSpacing: "-0.02em" }}
           >
             JESSEEKOH
             <span className="text-[var(--color-accent-violet)]">.</span>
@@ -74,8 +73,8 @@ export default function Navbar() {
             {/* Desktop Resume Button */}
             <li>
               <a
-                href={Resume}
-                download
+                href={resumeUrl}
+                download="Jesse_Ekoh-Ordan_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[var(--color-accent-violet)] text-[var(--color-bg)] rounded-lg hover:bg-[var(--color-accent-violet-light)] transition-colors duration-200"
@@ -89,9 +88,9 @@ export default function Navbar() {
           {/* Mobile: Resume Icon + Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
             <a
-              href={Resume}
+              href={resumeUrl}
+              download="Jesse_Ekoh-Ordan_Resume.pdf"
               target="_blank"
-              download
               rel="noopener noreferrer"
               className="p-2 text-[var(--color-accent-violet)] hover:text-[var(--color-accent-violet-light)] transition-colors"
               aria-label="Download Resume"
